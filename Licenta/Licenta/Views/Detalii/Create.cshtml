@@ -1,0 +1,29 @@
+﻿@model Detalii
+
+    <form asp-action="Create" asp-controller="Detalii" method="Post">
+        <input asp-for="Id" type="hidden" />
+        <input name="IsEditMode" id="IsEditMode" value="@ViewBag.IsEditMode" type ="hidden" />
+        <div class="form-group">
+            <label asp-for="Varsta"></label>
+            <input asp-for="Varsta" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Greutate"></label>
+            <input asp-for="Greutate" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Inaltimea"></label>
+            <input asp-for="Inaltimea" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Data"></label>
+            <input asp-for="Data" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type ="submit" value="Salveaza informatii" class="btn btn-primary" />
+         </div>
+    </form>

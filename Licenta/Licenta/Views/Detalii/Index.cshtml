@@ -1,0 +1,45 @@
+﻿@model List<Detalii>
+
+<h2>Toate detaliile</h2>
+<a class="btn btn-info" asp-action="Create">Adauga noi date</a>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Varsta</td>
+            <td>Greutatea</td>
+            <td>Inaltime</td>
+            <td>Data</td>
+            <td>Index Grasime Corporala</td>
+            <td>Grad</td>
+            <td>Link</td>
+            <td colspan="2">Optiuni</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalii in Model)
+        {
+            <tr>
+                <td>@detalii.Varsta</td>
+                <td>@detalii.Greutate</td>
+                <td>@detalii.Inaltimea</td>
+                <td>@detalii.Data</td>
+                <td>@detalii.Rezultat1</td>
+                <td>@detalii.Rezultat2</td>
+                <td>
+                    <a class="btn btn-primary" asp-action="edit" asp-route-id="@detalii.Id">
+                        Editare
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger delete"
+                       data-id="@detalii.Id"
+                       data_controller="Detalii"
+                       data-action="Delete"
+                       data-body-message="Sigur doriti sa stergeti aceasta inregistrare?">
+                        Stergere
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
