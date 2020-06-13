@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using static ClientNotifications.Helpers.NotificationHelper;
 
 namespace Licenta.Controllers
@@ -54,50 +55,47 @@ namespace Licenta.Controllers
         [Authorize]
         public IActionResult Create(Detalii detalii, string IsEditMode)
         {
-
-            try
+            if (!ModelState.IsValid)
             {
-                if (IsEditMode.Equals("false"))
-                {
-                    var userId = _userManager.GetUserId(this.HttpContext.User);
-                    detalii.UserId = userId;
-                    _detaliiRepository.Create(detalii);
-
-                }
-                else
-                    _detaliiRepository.Edit(detalii);
-                return RedirectToAction(nameof(Index));
-
-            } catch(Exception ex)
-            {
-                return Content("Nu s-a putut crea sau edita inregistrarea!");
+                ViewBag.IsEditMode = IsEditMode;
+                return View(detalii);
             }
-           
+            var userId = _userManager.GetUserId(this.HttpContext.User);
+            detalii.UserId = userId;
+            if (IsEditMode.Equals("false"))
+            {
+                _detaliiRepository.Create(detalii);
+            }
+
+            else
+                _detaliiRepository.Edit(detalii);
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
         public IActionResult Edit(int Id)
         {
-            try
-            {
+            
+                var loggedInUserId = _userManager.GetUserId(HttpContext.User);
+
                 ViewBag.IsEditMode = "true";
                 var detalii = _detaliiRepository.GetSingleDetalii(Id);
+                if(!detalii.UserId.Equals(loggedInUserId))
+                {
+                    return Content("Nu sunteti autorizat!");
+                }
                 return View("Create", detalii);
-            }
-            catch
-            {
-                return Content("Nu s-a gasit inregistrarea");
-            }
-           
         }
+            
 
         public IActionResult Delete(int id)
         {
             try
             {
+                ViewBag.IsEditMode = "true";
                 var detalii = _detaliiRepository.GetSingleDetalii(id);
-                _detaliiRepository.Delete(detalii);
-                return RedirectToAction(nameof(Index));
+                return View("Create", detalii);
             }
             catch
             {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B7WHMgZdFdgtKcGWCFozrc8W4vMWM2M09JchXqzmhlf+xfD8fStMsgDucoEwaGghXsp3TVO/Wy1/JJcersmQqw==",
+  "dgSpecHash": "hjbUFwB+/2p1HcQQWUX6hFFSGO3V65K9avKG+dlWmAF7/elVbqM7CiBEpnlsS28RZOT3k69OHb5G53whuLbCJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EliteBook\\Desktop\\Licenta-master\\Licenta\\Licenta.csproj",
+  "projectFilePath": "C:\\Users\\EliteBook\\Documents\\GitHub\\newLicenta\\Licenta\\Licenta\\Licenta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EliteBook\\.nuget\\packages\\clientnotifications\\1.17.1\\clientnotifications.1.17.1.nupkg.sha512",
     "C:\\Users\\EliteBook\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.0.1\\microsoft.aspnetcore.antiforgery.2.0.1.nupkg.sha512",
