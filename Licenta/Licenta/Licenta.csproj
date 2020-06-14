@@ -17,7 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
     <Folder Include="wwwroot\lib\sweetalert\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\1.jpg" />
+    <None Include="wwwroot\Images\2.jpg" />
+    <None Include="wwwroot\Images\3.jpg" />
+    <None Include="wwwroot\Images\4.jpg" />
   </ItemGroup>
 
 </Project>
