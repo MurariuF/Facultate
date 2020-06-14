@@ -7,8 +7,11 @@
     <link href="~/lib/_vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/sweetalert/sweetalert2.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/jplayer/skin/pink.flag/css/jplayer.pink.flag.css" rel="stylesheet" />
+    
 
-   
+
+
 </head>
 <body>
     <header>
@@ -50,7 +53,37 @@
     <script src="~/lib/sweetalert/sweetalert2.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/delete.js" asp-append-version="true"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js" integrity="sha256-YAIw54P6OPiIkUJq8S3ayOEunEz/MiK2AxDY0oFLNBs=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/jplayer/jplayer/jquery.jplayer.min.js"></script>
+    <script src="~/js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        title: "test1",
+                        //m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+                        m4v: "C:/Users/EliteBook/Documents/GitHub/newLicenta/Facultate/Licenta/Licenta/wwwroot/videos/test1.m4a",
+                        //ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+                        poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png",
+                        //title: "Test",
+                        //m4v: "/videos.test1.m4a"
+                    }
+                  );
+                },
+                cssSelectorAncestor: "#jp_container_1",
+                swfPath: "/js",
+                supplied: "m4v, ogv",
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true,
+                remainingDuration: true,
+                toggleDuration: true
+            });
+        });</script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

@@ -10098,11 +10098,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EliteBook\\Desktop\\Licenta\\Licenta\\Licenta.csproj",
+      "projectUniqueName": "C:\\Users\\EliteBook\\Documents\\GitHub\\newLicenta\\Facultate\\Licenta\\Licenta\\Licenta.csproj",
       "projectName": "Licenta",
-      "projectPath": "C:\\Users\\EliteBook\\Desktop\\Licenta\\Licenta\\Licenta.csproj",
+      "projectPath": "C:\\Users\\EliteBook\\Documents\\GitHub\\newLicenta\\Facultate\\Licenta\\Licenta\\Licenta.csproj",
       "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EliteBook\\Desktop\\Licenta\\Licenta\\obj\\",
+      "outputPath": "C:\\Users\\EliteBook\\Documents\\GitHub\\newLicenta\\Facultate\\Licenta\\Licenta\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

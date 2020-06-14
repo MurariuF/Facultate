@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jplayer@2.9.2",
+      "destination": "wwwroot/lib/jplayer/"
+    }
+  ]
+}
