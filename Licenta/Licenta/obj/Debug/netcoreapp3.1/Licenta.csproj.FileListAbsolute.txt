@@ -956,3 +956,4 @@ C:\Users\EliteBook\Documents\GitHub\newLicenta\Facultate\Licenta\Licenta\obj\Deb
 C:\Users\EliteBook\Documents\GitHub\newLicenta\Facultate\Licenta\Licenta\obj\Debug\netcoreapp3.1\Licenta.dll
 C:\Users\EliteBook\Documents\GitHub\newLicenta\Facultate\Licenta\Licenta\obj\Debug\netcoreapp3.1\Licenta.pdb
 C:\Users\EliteBook\Documents\GitHub\newLicenta\Facultate\Licenta\Licenta\obj\Debug\netcoreapp3.1\Licenta.genruntimeconfig.cache
+C:\Users\EliteBook\Documents\GitHub\newLicenta\Facultate\Licenta\Licenta\obj\Debug\netcoreapp3.1\Razor\Views\Home\Tutoriale.cshtml.g.cs

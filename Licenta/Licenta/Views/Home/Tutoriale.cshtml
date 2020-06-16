@@ -1,0 +1,80 @@
+﻿<link href="~/css/site.css" rel="stylesheet" />
+
+<div class="container-playlist">
+    <div id="mydiv" style="display:none;">
+        <div class="lightboxcontainer">
+            <div class="lightboxright">
+                <figure id="video_player">
+                    <video controls poster="nambia1.jpg">
+                        <source src="~/videos/test2.mp4" type="video/mp4">
+                        <source src="~/videos/test2.mp4" type="video/mp4">
+                        <source src="~/videos/test2.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    
+
+    <div>
+        <figure id="video_player">
+            <video controls poster="nambia1.jpg">
+                <source src="~/videos/test2.mp4" type="video/mp4">
+            </video>
+            <figcaption>
+                <a href="~/videos/test2.mp4"><img src="nambia1.jpg" alt="Nambia Timelapse 1"></a>
+                <a href="~/videos/test2.mp4"><img src="nambia1.jpg" alt="Nambia Timelapse 1"></a>
+                <a href="~/videos/test2.mp4"><img src="/Images/1.jpg" alt="Nambia Timelapse 1"></a>
+            </figcaption>
+        </figure>
+    </div>
+
+    <div>
+        <figure id="video_player">
+            <video controls poster="nambia1.jpg">
+                <source src="~/videos/test2.mp4" type="video/mp4">
+
+            </video>
+            <figcaption>
+                <a href="nambia1.mp4"><img src="nambia1.jpg" alt="Nambia Timelapse 1"></a>
+            </figcaption>
+        </figure>
+    </div>
+    <div>
+
+        <figure id="video_player">
+            <video controls poster="nambia1.jpg">
+                <source src="~/videos/test2.mp4" type="video/mp4">
+
+            </video>
+            <figcaption>
+                <a href="nambia1.mp4"><img src="nambia1.jpg" alt="Nambia Timelapse 1"></a>
+            </figcaption>
+        </figure>
+    </div>
+
+</div>
+<script>
+    var video_player = document.getElementById("video_player");
+    var links = video_player.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = handler;
+    }
+
+    function handler(e) {
+        e.preventDefault();
+        videotarget = this.getAttribute("href");
+        filename = videotarget.substr(0, videotarget.lastIndexOf('.')) || videotarget;
+        video = document.querySelector("#video_player video");
+        video.removeAttribute("controls");
+        video.setAttribute("poster", "/assets/images/video-placeholder.png");
+        source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".webm";
+        video.load();
+        video.play();
+    }</script>
+<script src="~/lib/html5lightbox/html5lightbox.js"></script>
+<script src="~/lib/_vendor/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/html5lightbox/jquery.js"></script>

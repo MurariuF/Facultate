@@ -65,35 +65,34 @@ namespace Licenta.Controllers
 
                 }
                 else
+                {
+                    var userId = _userManager.GetUserId(this.HttpContext.User);
+                    detalii.UserId = userId;
                     _detaliiRepository.Edit(detalii);
+                }
+                   
                 return RedirectToAction(nameof(Index));
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return Content("Nu s-a putut crea sau edita inregistrarea!");
             }
-           
+
         }
 
         [HttpGet]
         public IActionResult Edit(int Id)
         {
-            try
-            {
-                var loggedInUserId = _userManager.GetUserId(HttpContext.User);
+            var loggedInUserId = _userManager.GetUserId(HttpContext.User);
 
-                ViewBag.IsEditMode = "true";
-                var detalii = _detaliiRepository.GetSingleDetalii(Id);
-                if (!detalii.UserId.Equals(loggedInUserId))
-                {
-                    return Content("Nu sunteti autorizat!");
-                }
-                return View("Create", detalii);
-            }
-            catch
+            ViewBag.IsEditMode = "true";
+            var detalii = _detaliiRepository.GetSingleDetalii(Id);
+            if (!detalii.UserId.Equals(loggedInUserId))
             {
-                return Content("Nu s-a gasit inregistrarea");
+                return Content("Nu sunteti autorizat!");
             }
+            return View("Create", detalii);
         }
 
         public IActionResult Delete(int id)

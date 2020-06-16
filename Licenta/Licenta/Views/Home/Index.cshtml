@@ -1,53 +1,86 @@
 ﻿@{ ViewData["Title"] = "Home Page"; }
 
-<div id="jp_container_1" class="jp-video " role="application" aria-label="media player">
-    <div class="jp-type-playlist">
-        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-        <div class="jp-gui">
-            <div class="jp-video-play">
-                <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
-            </div>
-            <div class="jp-interface">
-                <div class="jp-progress">
-                    <div class="jp-seek-bar">
-                        <div class="jp-play-bar"></div>
-                    </div>
+    <link href="~/css/site.css" rel="stylesheet" />
+<figure id="video_player">
+    <video controls poster="/Images/1.jpg">
+        <source src="~/videos/test2.mp4" type="video/mp4">
+        <source src="~/videos/test2.webm" type="video/webm">
+
+    </video> 
+</figure>
+
+<script>
+    var video_player = document.getElementById("video_player");
+    var links = video_player.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = handler;
+    }
+
+    function handler(e) {
+        e.preventDefault();
+        videotarget = this.getAttribute("href");
+        filename = videotarget.substr(0, videotarget.lastIndexOf('.')) || videotarget;
+        video = document.querySelector("#video_player video");
+        video.removeAttribute("controls");
+        video.setAttribute("poster", "/assets/images/video-placeholder.png");
+        source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".webm";
+        video.load();
+        video.play();
+    }
+</script>
+
+
+
+@*<div id="jp_container_1" class="jp-video " role="application" aria-label="media player">
+        <div class="jp-type-playlist">
+            <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+            <div class="jp-gui">
+                <div class="jp-video-play">
+                    <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
                 </div>
-                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                <div class="jp-details">
-                    <div class="jp-title" aria-label="title">&nbsp;</div>
-                </div>
-                <div class="jp-controls-holder">
-                    <div class="jp-volume-controls">
-                        <button class="jp-mute" role="button" tabindex="0">mute</button>
-                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                        <div class="jp-volume-bar">
-                            <div class="jp-volume-bar-value"></div>
+                <div class="jp-interface">
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"></div>
                         </div>
                     </div>
-                    <div class="jp-controls">
-                        <button class="jp-play" role="button" tabindex="0">play</button>
-                        <button class="jp-stop" role="button" tabindex="0">stop</button>
-                        <button class="jp-previous" role="button" tabindex="0">previous</button>
-                        <button class="jp-next" role="button" tabindex="0">next</button>
+                    <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                    <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                    <div class="jp-details">
+                        <div class="jp-title" aria-label="title">&nbsp;</div>
                     </div>
-                    <div class="jp-toggles">
-                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                        <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                    <div class="jp-controls-holder">
+                        <div class="jp-volume-controls">
+                            <button class="jp-mute" role="button" tabindex="0">mute</button>
+                            <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                        </div>
+                        <div class="jp-controls">
+                            <button class="jp-play" role="button" tabindex="0">play</button>
+                            <button class="jp-stop" role="button" tabindex="0">stop</button>
+                            <button class="jp-previous" role="button" tabindex="0">previous</button>
+                            <button class="jp-next" role="button" tabindex="0">next</button>
+                        </div>
+                        <div class="jp-toggles">
+                            <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                            <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="jp-playlist">
+                <div class="jp-playlist">
 
+                </div>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
             </div>
         </div>
-        <div class="jp-no-solution">
-            <span>Update Required</span>
-            To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-        </div>
-    </div>
-</div>
+    </div>*@
 
 @*<script type="text/javascript">
     $(document).ready(function () {

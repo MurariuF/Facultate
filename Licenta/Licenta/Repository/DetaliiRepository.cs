@@ -44,6 +44,20 @@ namespace Licenta.Repository
 
         public void Edit(Detalii detalii)
         {
+            float inaltimea = detalii.Inaltimea;
+            var greutate = detalii.Greutate;
+            inaltimea = inaltimea / 100f;
+            string rezultat2;                        
+            var rezultat1 = greutate / (inaltimea * inaltimea);
+            if (rezultat1 > 30)
+                rezultat2 = "Obez";
+            else
+                if (rezultat1 < 30 && rezultat1 > 20)
+                rezultat2 = "Normal";
+            else
+                rezultat2 = "Ok";
+            detalii.Rezultat1 = rezultat1;
+            detalii.Rezultat2 = rezultat2;
             _context.Detaliis.Update(detalii);
             _context.SaveChanges();
         }
